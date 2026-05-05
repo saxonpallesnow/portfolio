@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter+Tight:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-black: #000000;
+  --text-white: #ffffff;
+  --text-gray: #a1a1a6;
+  --accent-color: #ffffff;
+  
+  --font-display: 'Syncopate', sans-serif;
+  --font-body: 'Inter Tight', sans-serif;
+  --font-mono: 'Space Grotesk', sans-serif;
+  
+  --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --section-padding: 8vw;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-black);
+  color: var(--text-white);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text-white);
+}
+
+p {
+  color: var(--text-gray);
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Minimalist navigation links hover effect */
+.nav-link {
+  position: relative;
+  color: var(--text-gray);
+  transition: color 0.3s ease;
+  font-weight: 400;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--text-white);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--text-white);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+/* High-End Scroll Reveal Physics */
+.reveal {
+  opacity: 0.1; /* Start slightly visible to prevent "invisible" bug */
+  transform: translateY(30px) scale(0.98);
+  filter: blur(5px);
+  transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.5s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity, filter;
+}
+
+.reveal.active {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  filter: blur(0) !important;
+}
+
+/* Fallback for safety */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Image-specific reveal (Liquid-like slide) */
+.reveal-img {
+  overflow: hidden;
+}
+
+.reveal-img img {
+  transform: scale(1.2);
+  transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-img.active img {
+  transform: scale(1);
+}
+
+/* Staggered entry for list items */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+
+/* Custom Selection */
+::selection {
+  background: var(--text-white);
+  color: var(--bg-black);
+}
+
+/* Clean Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-black);
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
