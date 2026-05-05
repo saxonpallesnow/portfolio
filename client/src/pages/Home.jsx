@@ -125,8 +125,8 @@ const Home = () => {
             {/* Overlay Text on Image */}
             <div className="absolute bottom-4 left-6 md:bottom-16 md:left-16 max-w-2xl">
               <h1 className="font-display font-bold text-3xl md:text-5xl lg:text-6xl uppercase tracking-tight leading-[1.1] text-white drop-shadow-lg">
-                Ambiguity to Action — <br />
-                Through Automation.
+                Ideas to Impact — <br />
+                Simplify. Automate. Accelerate.
               </h1>
             </div>
           </div>
